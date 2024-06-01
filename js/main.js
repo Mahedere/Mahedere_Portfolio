@@ -275,3 +275,28 @@
 
 })(jQuery);
 
+document.getElementById('downloadButton').addEventListener('click', function() {
+	const cvLink = './images/CV.pdf'; // Change this to the path of your CV file
+	const link = document.createElement('a');
+	link.href = cvLink;
+	link.download = 'CV.pdf'; // Change this to the desired file name
+	document.body.appendChild(link);
+	link.click();
+	document.body.removeChild(link);
+  });
+ 
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
+	e.preventDefault();
+
+	emailjs.sendForm('service_712z2kt', 'template_v86euir', this)
+	  .then(function(response) {
+		console.log('Email sent successfully!', response.status, response.text);
+		e.target.reset();
+	  }, function(error) {
+		console.error('Error sending email:', error);
+	  });
+  });
+
+  (function() {
+	emailjs.init('ENOd4VYwyJCZ_djpE'); // Replace with your EmailJS user ID
+  })();
