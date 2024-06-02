@@ -285,21 +285,22 @@ document.getElementById('downloadButton').addEventListener('click', function() {
 	document.body.removeChild(link);
   });
  
-  document.getElementById('contact-form').addEventListener('submit', function(e) {
-	e.preventDefault();
+  document.addEventListener('DOMContentLoaded', function() {
+    emailjs.init('ENOd4VYwyJCZ_djpE'); // Replace with your EmailJS user ID
+});
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
 
-	emailjs.sendForm('service_712z2kt', 'template_jqb6oir', this)
-	  .then(function(response) {
-		console.log('Email sent successfully!', response.status, response.text);
-		e.target.reset();
-	  }, function(error) {
-		console.error('Error sending email:', error);
-	  });
-  });
-
-  (function() {
-	emailjs.init('ENOd4VYwyJCZ_djpE'); // Replace with your EmailJS user ID
-  })();
+    emailjs.sendForm('service_712z2kt', 'template_v86euir', this)
+        .then(function(response) {
+            console.log('Email sent successfully!', response.status, response.text);
+            document.getElementById('response-message').innerText = 'Email sent successfully!';
+            e.target.reset();
+        }, function(error) {
+            console.error('Error sending email:', error);
+            document.getElementById('response-message').innerText = 'Failed to send email. Please try again.';
+        });
+});
    $(document).ready(function () {
       // Collapse the navbar on link click
       $('.navbar-nav .nav-link').on('click', function () {
