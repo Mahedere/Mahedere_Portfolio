@@ -300,9 +300,9 @@ document.getElementById('downloadButton').addEventListener('click', function() {
   (function() {
 	emailjs.init('ENOd4VYwyJCZ_djpE'); // Replace with your EmailJS user ID
   })();
-  $(document).ready(function () {
-	// Collapse the navbar on link click
-	$('.navbar-nav .nav-link').on('click', function () {
-	  $('.navbar-collapse').collapse('hide');
-	});
-  });
+   $(document).ready(function () {
+      // Collapse the navbar on link click
+      $('.navbar-nav .nav-link').on('click', function () {
+        $('.navbar-collapse').collapse('hide');
+      });
+    });
