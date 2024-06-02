@@ -288,7 +288,7 @@ document.getElementById('downloadButton').addEventListener('click', function() {
   document.getElementById('contact-form').addEventListener('submit', function(e) {
 	e.preventDefault();
 
-	emailjs.sendForm('service_712z2kt', 'template_v86euir', this)
+	emailjs.sendForm('service_712z2kt', 'template_jqb6oir', this)
 	  .then(function(response) {
 		console.log('Email sent successfully!', response.status, response.text);
 		e.target.reset();
@@ -300,3 +300,9 @@ document.getElementById('downloadButton').addEventListener('click', function() {
   (function() {
 	emailjs.init('ENOd4VYwyJCZ_djpE'); // Replace with your EmailJS user ID
   })();
+  $(document).ready(function () {
+	// Collapse the navbar on link click
+	$('.navbar-nav .nav-link').on('click', function () {
+	  $('.navbar-collapse').collapse('hide');
+	});
+  });
